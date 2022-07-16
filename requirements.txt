@@ -1,0 +1,7 @@
+# Open CMD
+# Enter:
+# pip install -r requirements.txt
+
+pymongo
+dnspython
+progress

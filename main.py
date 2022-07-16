@@ -31,7 +31,9 @@ disease_dict = {}
 disease_list = [data2[r].get("disease") for r in range(datac2)]
 
 for r in range(datac2):
-    for ty in data[r].get("disease"):
+    qq=data2[r].get("disease")
+    bqq=qq.split("\n")
+    for ty in bqq:
         disease_dict[ty] = [0, 0]
 
 # def find_symptom_disease_data(symptom):
@@ -41,7 +43,7 @@ for r in range(datac2):
 #               return [data[hh].get("disease"), data[hh].get("point")]
 
 
-print("Hi, please select your symptoms from the list below (Separate with spaces):")
+print("Hi, please select your symptoms from the list below (Separate with spaces, enter the numbers):")
 for r in range(datac):
     print(str(r + 1) + ". " + str(data[r].get("symptom")))
 
@@ -54,12 +56,14 @@ seconds = time.time()
 ess = es.split(" ")
 for ss in ess:
     try:
-        if 0 < int(ss) < datac:
-            relcan_entered_symptoms.append(data[int(ss) - 1].get("symptom"))
+        if 0 < int(ss) <= datac:
+            relcan_entered_symptoms.append(data[int(ss)-1].get("symptom"))
     finally:
         pass
 
 entered_symptoms = list(OrderedDict.fromkeys(relcan_entered_symptoms))
+
+# print(entered_symptoms)
 
 bar1 = Bar('Processing Server Data', max=len(entered_symptoms), force_tty=True)
 
@@ -121,3 +125,4 @@ if len(np) == 0:
 else:
     for ww in np:
         print(pp[ww[0]])
+
