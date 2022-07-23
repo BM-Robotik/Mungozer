@@ -58,7 +58,7 @@ with open("data.txt", "a") as tfile:
         print(str(r + 1) + ". " + str(data[r].get("symptom")))
         tfile.write(str(data[r].get("symptom")) + "\n")
     
-    tfile.write("||2\n")    
+    tfile.write("||1\n")    
     tfile.close()
 
 #os.system('cmd /k "start & php -S localhost:8000 index.php"')
@@ -67,23 +67,29 @@ phpprocess = subprocess.Popen('start /wait php -S localhost:8000 index.php'.spli
 
 webbrowser.open("http://localhost:8000", new=1, autoraise=True)
 
-es = input("Selection: ")
+time.sleep(2)
 
-print("Calculating, please wait...")
+fileread1 = []
+
+with open('data.txt') as myfile:
+     while (True):
+        fileread1 = myfile.read().split("\n")
+        if ("||2" in fileread1):
+            #print(fileread1)
+            myfile.close()
+            break
+        myfile.seek(0)
+
+
+relcan_entered_symptoms.extend(fileread1[fileread1.index("||1")+1:-2])
+
+#print(relcan_entered_symptoms)
 
 seconds = time.time()
 
-ess = es.split(" ")
-for ss in ess:
-    try:
-        if 0 < int(ss) <= datac:
-            relcan_entered_symptoms.append(data[int(ss)-1].get("symptom"))
-    finally:
-        pass
-
 entered_symptoms = list(OrderedDict.fromkeys(relcan_entered_symptoms))
 
-# print(entered_symptoms)
+#print(entered_symptoms)
 
 bar1 = Bar('Processing Server Data', max=len(entered_symptoms), force_tty=True)
 
@@ -131,7 +137,7 @@ bar2.finish()
 print(time.time() - seconds)
 
 print("\nResults are listed by probability:\n")
-
+6
 
 def myf(vv):
     return vv[1]
@@ -139,10 +145,21 @@ def myf(vv):
 
 np.sort(key=myf)
 
-if len(np) == 0:
-    print("Wow, you are the most healthy person I've ever seen!")
+with open("data2.txt", "w") as tfile2:
 
-else:
-    for ww in np:
-        print(pp[ww[0]])
+    if len(np) == 0:
+        print("Wow, you are the most healthy person I've ever seen!")
+        tfile2.write("Wow, you are the most healthy person I've ever seen!")
+
+    else:
+        for ww in np:
+            print(pp[ww[0]])
+            tfile2.write(pp[ww[0]]+"\n")
+    
+    tfile2.close()
+
+time.sleep(2)
+
+if os.path.exists("data2.txt"):
+  os.remove("data2.txt")
 

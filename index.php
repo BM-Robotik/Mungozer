@@ -21,7 +21,17 @@
 
             fclose($myfile);
 
-            $filearr = explode("\n", $str);
+            $tmpfilearr = explode("\n", $str);
+
+            $filearr = [];
+
+            foreach ($tmpfilearr as $fd) {
+                if (strpos($fd, "||1") !== false) {
+                    break;
+                } else {
+                    $filearr[] = $fd;
+                }
+            }
 
             #print_r($filearr);
 
@@ -31,10 +41,9 @@
                 $i = 1;
                 foreach ($filearr as $nf) {
                     $tvar = "";
-                    if (isset($_POST['submit']) and !empty($_POST['checkbox'])) {                      
-                        if (in_array($nf."\n",$_POST['checkbox'])==1) {
+                    if (isset($_POST['submit']) and !empty($_POST['checkbox'])) {
+                        if (in_array($nf . "\n", $_POST['checkbox']) == 1) {
                             $tvar = "checked";
-
                         }
                     }
                     $element = "<input type='checkbox' id='checkbox" . $i . "' name='checkbox[]' value='" . $nf . "' " . $tvar . "><label for='checkbox" . $i . "'>" . $nf . "</label><br>";
@@ -56,19 +65,58 @@
         $chkindex = 1;
         if (!empty($_POST['checkbox'])) {
 
+            $myfile = fopen("data.txt", "a") or die("Unable to open file!");
+
             foreach ($_POST['checkbox'] as $value) {
-                echo "Chosen checkbox : " . $value . '<br>';
+                fwrite($myfile, $value);
+                #echo "Chosen checkbox : " . $value . '<br>';
             }
+
+            fwrite($myfile, "||2\n");
+
+            fclose($myfile);
+            
+            while (!file_exists("data2.txt")) {
+                
+            } 
+
+            sleep(2);
+
+            print_r("File Received");
+            
+            $myfile = fopen("data2.txt", "r") or die("Unable to open file!");
+            $str = "";
+            $str = fread($myfile, filesize("data.txt"));
+            fclose($myfile);
+            $filearr2 = explode("\n", $str);
+
+            print_r($filearr2);
+
+            foreach ($filearr2 as $fa) {
+                print_r($fa);
+                echo "<br>";
+            }
+
+            #unlink("data2.txt");
+
         }
     }
+    
     ?>
 
     <script>
         function clearchecks() {
             $('input:checkbox').removeAttr('checked');
         }
-    </script>
 
+        /*function sleep(milliseconds) {
+            const date = Date.now();
+            let currentDate = null;
+            do {
+                currentDate = Date.now();
+            } while (currentDate - date < milliseconds);
+        }*/
+    </script>
 
 </body>
 
