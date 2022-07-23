@@ -63,7 +63,7 @@ with open("data.txt", "a") as tfile:
 
 #os.system('cmd /k "start & php -S localhost:8000 index.php"')
 
-phpprocess = subprocess.Popen('start /wait C:\\Users\\batuhan\\Documents\\php\\php.exe -S localhost:8000 index.php'.split(),shell=True)
+phpprocess = subprocess.Popen('start /wait php -S localhost:8000 index.php'.split(),shell=True)
 
 webbrowser.open("http://localhost:8000", new=1, autoraise=True)
 
