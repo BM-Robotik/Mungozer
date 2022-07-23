@@ -1,7 +1,11 @@
+from cmd import Cmd
 import pymongo as mungo
 from progress.bar import Bar
 from collections import OrderedDict
 import time
+import os
+import webbrowser
+import subprocess
 
 entered_symptoms = []
 relcan_entered_symptoms = []
@@ -42,10 +46,26 @@ for r in range(datac2):
 #           if data[hh].get("symptom") == symptom:
 #               return [data[hh].get("disease"), data[hh].get("point")]
 
-
 print("Hi, please select your symptoms from the list below (Separate with spaces, enter the numbers):")
-for r in range(datac):
-    print(str(r + 1) + ". " + str(data[r].get("symptom")))
+
+with open("data.txt", "w") as tfile:
+    tfile.write("")
+    tfile.close()
+
+with open("data.txt", "a") as tfile:
+
+    for r in range(datac):
+        print(str(r + 1) + ". " + str(data[r].get("symptom")))
+        tfile.write(str(data[r].get("symptom")) + "\n")
+    
+    tfile.write("||2\n")    
+    tfile.close()
+
+#os.system('cmd /k "start & php -S localhost:8000 index.php"')
+
+phpprocess = subprocess.Popen('start /wait C:\\Users\\batuhan\\Documents\\php\\php.exe -S localhost:8000 index.php'.split(),shell=True)
+
+webbrowser.open("http://localhost:8000", new=1, autoraise=True)
 
 es = input("Selection: ")
 
