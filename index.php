@@ -16,11 +16,6 @@
         $str = "";
         if (filesize("data.txt") === 0) {
             fclose($myfile);
-            $tm = time();
-            while (time() - $tm > 3) {
-            }
-            echo "aq";
-            goto readfile1;
         } else {
             $str = fread($myfile, filesize("data.txt"));
 
@@ -35,7 +30,14 @@
             if (count($filearr)) {
                 $i = 1;
                 foreach ($filearr as $nf) {
-                    $element = "<input type='checkbox' id='checkbox" . $i . "' name='checkbox[]' value='" . $nf . "'><label for='checkbox" . $i . "'>" . $nf . "</label><br>";
+                    $tvar = "";
+                    if (isset($_POST['submit']) and !empty($_POST['checkbox'])) {                      
+                        if (in_array($nf."\n",$_POST['checkbox'])==1) {
+                            $tvar = "checked";
+
+                        }
+                    }
+                    $element = "<input type='checkbox' id='checkbox" . $i . "' name='checkbox[]' value='" . $nf . "' " . $tvar . "><label for='checkbox" . $i . "'>" . $nf . "</label><br>";
                     echo $element;
                     $i = $i + 1;
                 }
@@ -44,7 +46,7 @@
 
         ?>
 
-        <button type="reset">Clear Checkboxes</button>
+        <button onclick="clearchecks()">Clear Checkboxes</button>
 
         <input type="submit" value="Submit" name="submit">
     </form>
@@ -52,15 +54,21 @@
     <?php
     if (isset($_POST['submit'])) {
         $chkindex = 1;
-        if(!empty($_POST['checkbox'])) {
+        if (!empty($_POST['checkbox'])) {
 
-            foreach($_POST['checkbox'] as $value){
-                echo "Chosen checkbox : ".$value.'<br/>';
+            foreach ($_POST['checkbox'] as $value) {
+                echo "Chosen checkbox : " . $value . '<br>';
             }
-    
         }
     }
     ?>
+
+    <script>
+        function clearchecks() {
+            $('input:checkbox').removeAttr('checked');
+        }
+    </script>
+
 
 </body>
 
