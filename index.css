@@ -15,21 +15,13 @@ body {
     background-repeat: no-repeat;
     position: relative;
     justify-content: center;
-}
-
-
-html,
-body {
-    margin: 0;
-    padding: 0;
-    height: 90%;
     overflow-y: auto;
 
 }
 
 #pagetitle {
     text-align: center;
-    font: 65px 'Ubuntu_Regular';
+    font: 50px 'Ubuntu_Regular';
     color: #10611a;
 }
 
@@ -168,7 +160,7 @@ body {
     height: 470px;
     position: absolute;
     left: 17.5%;
-    top: 15%;
+    top: 225px;
     bottom: 10%;
 }
 
@@ -177,12 +169,12 @@ body {
     border-style: solid;
     border-color: #d20453;
     background: #d5fffc;
-    padding: 20px;
+    padding: 1%;
     width: 550px;
     height: 75px;
     position: absolute;
     left: 17.5%;
-    top: 700px;
+    top: 745px;
 }
 
 #outputbox1 {
@@ -197,7 +189,7 @@ body {
     height: 470px;
     position: absolute;
     left: 55%;
-    top: 15%;
+    top: 225px;
     bottom: 10%;
 }
 
@@ -206,14 +198,14 @@ body {
     border-style: solid;
     border-color: #d20453;
     background: #d5fffc;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 40px;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 2%;
     width: 550px;
     height: 75px;
     position: absolute;
     left: 55%;
-    top: 700px;
+    top: 745px;
 }
 
 #diseasebox {
@@ -237,29 +229,6 @@ body {
 .diseasetext {
     font: 15px 'Arial';
 }
-
-#con {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    left: 0;
-}
-
-#content {
-    height: 100px;
-}
-
-#footer {
-    position: relative;
-    left: 0;
-    bottom: 0;
-    height: 135px;
-    width: 100%;
-    background-color: rgb(255, 235, 254);
-    color: rgb(92, 170, 255);
-    text-align: center;
-}
-
 
 a.footerlink:link {
     color: rgb(172, 120, 255);
