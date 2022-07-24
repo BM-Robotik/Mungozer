@@ -4,6 +4,7 @@
 <head>
     <title>Mungozer</title>
     <link rel="stylesheet" type="text/css" href="index.css">
+    
 </head>
 
 <body>
@@ -46,7 +47,7 @@
                             $tvar = "checked";
                         }
                     }
-                    $element = "<input type='checkbox' id='checkbox" . $i . "' name='checkbox[]' value='" . $nf . "' " . $tvar . "><label for='checkbox" . $i . "'>" . $nf . "</label><br>";
+                    $element = "<label class='container'>" . $nf . "<input type='checkbox' id='checkbox" . $i . "' name='checkbox[]' value='" . $nf . "' " . $tvar . "><span class='checkmark'></span></label>";
                     echo $element;
                     $i = $i + 1;
                 }
@@ -75,15 +76,14 @@
             fwrite($myfile, "||2\n");
 
             fclose($myfile);
-            
+
             while (!file_exists("data2.txt")) {
-                
-            } 
+            }
 
             sleep(2);
 
             #print_r("File Received");
-            
+
             $myfile = fopen("data2.txt", "r") or die("Unable to open file!");
             $str = "";
             $str = fread($myfile, filesize("data.txt"));
@@ -101,7 +101,7 @@
 
         }
     }
-    
+
     ?>
 
     <script>

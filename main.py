@@ -65,7 +65,7 @@ with open("data.txt", "w") as tfile:
     tfile.write("||1\n")
     tfile.close()
 
-phpprocess = subprocess.Popen('start /wait php -S localhost:8000 index.php'.split(),shell=True)
+phpprocess = subprocess.Popen('start /wait php -S localhost:8000'.split(),shell=True)
 
 webbrowser.open("http://localhost:8000", new=1, autoraise=True)
 
