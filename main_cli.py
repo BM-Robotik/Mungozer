@@ -43,7 +43,7 @@ for r in range(datac2):
 #               return [data[hh].get("disease"), data[hh].get("point")]
 
 
-print("Hi, please select your symptoms from the list below (Separate with spaces, enter the numbers):")
+print("Hi, welcome to Mungozer. Please select your symptoms from the list below (Separate with spaces, enter the numbers):")
 for r in range(datac):
     print(str(r + 1) + ". " + str(data[r].get("symptom")))
 
@@ -108,7 +108,7 @@ for key, value in disease_dict.items():
     bar2.next()
 bar2.finish()
 
-print(time.time() - seconds)
+print("Calculated in", time.time() - seconds, "seconds!")
 
 print("\nResults are listed by probability:\n")
 
@@ -120,7 +120,7 @@ def myf(vv):
 np.sort(key=myf)
 
 if len(np) == 0:
-    print("Wow, you are the most healthy person I've ever seen!")
+    print("There seems nothing that serious.")
 
 else:
     for ww in np:

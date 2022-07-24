@@ -53,11 +53,7 @@ with open("data.txt", "w") as tfile:
         tdata = str(data[r].get("symptom"))
         symptomarr.append(tdata)
 
-    print(symptomarr)
-
     symptomarr.sort()
-
-    print(symptomarr)
 
     tfile.write('\n'.join(symptomarr))
     tfile.write("\n||1\n")
