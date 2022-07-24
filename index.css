@@ -15,14 +15,16 @@ body {
     background-repeat: no-repeat;
     position: relative;
     justify-content: center;
-    overflow: auto;
 }
+
 
 html,
 body {
     margin: 0;
     padding: 0;
     height: 90%;
+    overflow-y: auto;
+
 }
 
 #pagetitle {
