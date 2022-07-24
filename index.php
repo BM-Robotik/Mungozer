@@ -130,7 +130,7 @@
     </div>
 
     <div id="howto">
-        <p style="font: 16px 'Ubuntu_Light';"><b style="font: 16px 'Ubuntu_Regular';">How to use: </b><br>1. Select your symptoms.<br>2. Click "Submit".<br>3. Look at your results after few seconds.<br><b style="font-size:12px;">Result format: Disease, Total point of symptoms/Threshold of the following possibility, Possibility</b></p>
+        <p style="font: 16px 'Ubuntu_Light';"><b style="font: 16px 'Ubuntu_Regular';">How to use: </b><br>1. Select your symptoms.<br>2. Click "Submit".<br>3. Look at your results after few seconds.<br><b style="font-size:12px;">Result format: Disease, Total point of symptoms/Threshold of the possibility "Very Likely", Possibility</b></p>
     </div>
 
     <script>
