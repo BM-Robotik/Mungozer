@@ -1,7 +1,33 @@
+@font-face {
+    font-family: 'Ubuntu_Regular';
+    src: url('fonts/ubuntu_regular.woff');
+}
+
+@font-face {
+    font-family: 'Ubuntu_Light';
+    src: url('fonts/ubuntu_light.woff');
+}
+
+
 body {
-    background-image: url('bg002.png');
+    background-image: url('images/bg002.png');
     background-size: cover;
     background-repeat: no-repeat;
+    position: relative;
+    justify-content: center;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 90%;
+}
+
+#pagetitle {
+    text-align: center;
+    font: 65px 'Ubuntu_Regular';
+    color: #10611a;
 }
 
 .container {
@@ -17,19 +43,17 @@ body {
     -ms-user-select: none;
     user-select: none;
     width: 250px;
-  }
-  
-  /* Hide the browser's default checkbox */
-  .container input {
+}
+
+.container input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
     height: 0;
     width: 0;
-  }
-  
-  /* Create a custom checkbox */
-  .checkmark {
+}
+
+.checkmark {
     position: absolute;
     top: 0;
     left: 0;
@@ -37,32 +61,27 @@ body {
     width: 15px;
     background-color: #ffffff;
     border-radius: 4px;
-  }
-  
-  /* On mouse-over, add a grey background color */
-  .container:hover input ~ .checkmark {
+}
+
+.container:hover input~.checkmark {
     background-color: #ff97bf;
-  }
-  
-  /* When the checkbox is checked, add a blue background */
-  .container input:checked ~ .checkmark {
+}
+
+.container input:checked~.checkmark {
     background-color: #d20453;
-  }
-  
-  /* Create the checkmark/indicator (hidden when not checked) */
-  .checkmark:after {
+}
+
+.checkmark:after {
     content: "";
     position: absolute;
     display: none;
-  }
-  
-  /* Show the checkmark when checked */
-  .container input:checked ~ .checkmark:after {
+}
+
+.container input:checked~.checkmark:after {
     display: block;
-  }
-  
-  /* Style the checkmark/indicator */
-  .container .checkmark:after {
+}
+
+.container .checkmark:after {
     left: 4.5px;
     top: 2px;
     width: 2px;
@@ -72,4 +91,193 @@ body {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
-  }
+}
+
+.submit_button {
+    position: absolute;
+    color: #d20453;
+    border: 2px solid #d20453;
+    padding: 14px 33px;
+    cursor: pointer;
+    left: 65%;
+    border-width: 2px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    border-radius: 30px;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    font-size: 34px;
+    font-weight: 600;
+    -webkit-box-shadow: 0px 10px 20px -6px rgb(0 0 0 / 12%);
+    -moz-box-shadow: 0px 10px 20px -6px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 10px 20px -6px rgb(0 0 0 / 12%);
+}
+
+.submit_button:hover {
+    cursor: pointer;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    border-radius: 30px;
+    background-color: #d20453;
+    color: #ffffff;
+}
+
+.clear_button {
+    position: absolute;
+    color: #d20453;
+    border: 2px solid #d20453;
+    padding: 14px 28px;
+    cursor: pointer;
+    left: 2.5%;
+    border-width: 2px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    border-radius: 30px;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    font-size: 34px;
+    font-weight: 600;
+    -webkit-box-shadow: 0px 10px 20px -6px rgb(0 0 0 / 12%);
+    -moz-box-shadow: 0px 10px 20px -6px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 10px 20px -6px rgb(0 0 0 / 12%);
+}
+
+.clear_button:hover {
+    cursor: pointer;
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    border-radius: 30px;
+    background-color: #d20453;
+    color: #ffffff;
+}
+
+#inputbox1 {
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #d20453;
+    background: #d5fffc;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 1%;
+    width: 550px;
+    height: 470px;
+    position: absolute;
+    left: 17.5%;
+    top: 15%;
+    bottom: 10%;
+}
+
+#submit-clear {
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #d20453;
+    background: #d5fffc;
+    padding: 20px;
+    width: 550px;
+    height: 75px;
+    position: absolute;
+    left: 17.5%;
+    top: 700px;
+}
+
+#outputbox1 {
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #d20453;
+    background: #d5fffc;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 1%;
+    width: 550px;
+    height: 470px;
+    position: absolute;
+    left: 55%;
+    top: 15%;
+    bottom: 10%;
+}
+
+#howto {
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #d20453;
+    background: #d5fffc;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 40px;
+    width: 550px;
+    height: 75px;
+    position: absolute;
+    left: 55%;
+    top: 700px;
+}
+
+#diseasebox {
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #d20453;
+    background: #d5fffc;
+    width: 95%;
+    height: 95%;
+    margin: 0 auto;
+    overflow: scroll;
+}
+
+.divtitle {
+    font: 16px 'Ubuntu_Regular';
+    width: 100%;
+    text-align: center;
+    color: rgb(172, 120, 255);
+}
+
+.diseasetext {
+    font: 15px 'Arial';
+}
+
+#con {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+#content {
+    height: 100px;
+}
+
+#footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    height: 135px;
+    width: 100%;
+    background-color: rgb(255, 235, 254);
+    color: rgb(92, 170, 255);
+    text-align: center;
+}
+
+
+a.footerlink:link {
+    color: rgb(172, 120, 255);
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a.footerlink:visited {
+    color: rgb(172, 120, 255);
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a.footerlink:hover {
+    color: rgb(118, 94, 255)red;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+a.footerlink:active {
+    color: rgb(205, 173, 255);
+    background-color: transparent;
+    text-decoration: underline;
+}

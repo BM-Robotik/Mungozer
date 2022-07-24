@@ -1,4 +1,3 @@
-from cmd import Cmd
 import pymongo as mungo
 from progress.bar import Bar
 from collections import OrderedDict
@@ -60,9 +59,16 @@ with open("data.txt", "w") as tfile:
         tdata = str(data[r].get("symptom"))
         #print(str(r + 1) + ". " + str(data[r].get("symptom")))
         symptomarr.append(tdata)
-        tfile.write(tdata + "\n")
     
-    tfile.write("||1\n")
+    print(symptomarr)
+
+    symptomarr.sort()
+
+    print(symptomarr)
+
+
+    tfile.write('\n'.join(symptomarr))
+    tfile.write("\n||1\n")
     tfile.close()
 
 phpprocess = subprocess.Popen('start /wait php -S localhost:8000'.split(),shell=True)
@@ -83,6 +89,8 @@ while(True):
                 break
             myfile.seek(0)
 
+    entered_symptoms = []
+    relcan_entered_symptoms = []
 
     relcan_entered_symptoms.extend(fileread1[fileread1.index("||1")+1:-2])
 
@@ -149,8 +157,8 @@ while(True):
     with open("data2.txt", "w") as tfile2:
 
         if len(np) == 0:
-            print("Wow, you are the most healthy person I've ever seen!")
-            tfile2.write("Wow, you are the most healthy person I've ever seen!")
+            print("There seems nothing that serious.")
+            tfile2.write("There seems nothing that serious.")
 
         else:
             for ww in np:
