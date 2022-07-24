@@ -88,10 +88,13 @@
 
             fclose($myfile);
 
+            $tempvar = 0;
+
             while (!file_exists("data2.txt")) {
+                $tempvar = $tempvar + 1;
             }
 
-            sleep(2);
+            sleep(3);
 
             #print_r("File Received");
 

@@ -142,7 +142,7 @@ while(True):
 
         tfile2.close()
 
-    time.sleep(2)
+    time.sleep(6)
 
     if os.path.exists("data2.txt"):
         os.remove("data2.txt")
@@ -158,3 +158,4 @@ while(True):
         bqq = qq.split("\n")
         for ty in bqq:
             disease_dict[ty] = [0, 0]
+
