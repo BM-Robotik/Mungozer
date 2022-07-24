@@ -82,7 +82,7 @@
 
             sleep(2);
 
-            print_r("File Received");
+            #print_r("File Received");
             
             $myfile = fopen("data2.txt", "r") or die("Unable to open file!");
             $str = "";
@@ -90,7 +90,7 @@
             fclose($myfile);
             $filearr2 = explode("\n", $str);
 
-            print_r($filearr2);
+            #print_r($filearr2);
 
             foreach ($filearr2 as $fa) {
                 print_r($fa);
